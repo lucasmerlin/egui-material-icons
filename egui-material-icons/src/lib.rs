@@ -1,4 +1,4 @@
-use egui::{Button, FontData, FontDefinitions, FontFamily, Label, Response, RichText, Widget};
+use egui::{Button, FontData, FontDefinitions, FontFamily, Response, RichText, Widget};
 
 pub mod icons {
     material_icons_proc_macro::code_points!();

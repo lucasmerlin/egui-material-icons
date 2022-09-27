@@ -29,5 +29,3 @@ pub fn code_points(_item: TokenStream) -> TokenStream {
 
     code.parse().unwrap()
 }
-
-const NANANA: &str = "\u{ff23}";

@@ -1,9 +1,8 @@
 use eframe::egui;
-use egui::{FontId, Label, Widget, WidgetText};
-use egui::WidgetText::RichText;
+
+
 use egui_material_icons::{icon_button, initialize};
 use egui_material_icons::icons::*;
-use egui_demo_lib::DemoWindows;
 
 fn main() {
     let native_options = eframe::NativeOptions::default();
@@ -12,7 +11,6 @@ fn main() {
 
 #[derive(Default)]
 struct MyEguiApp {
-    demo: DemoWindows,
 }
 
 impl MyEguiApp {
@@ -24,16 +22,13 @@ impl MyEguiApp {
 }
 
 impl eframe::App for MyEguiApp {
-    fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-
             ui.horizontal(|ui| {
                 icon_button(ui, ICON_ADD);
                 icon_button(ui, ICON_REMOVE);
                 icon_button(ui, ICON_IMAGE);
             });
-
-            //self.demo.ui(ctx);
         });
     }
 }
