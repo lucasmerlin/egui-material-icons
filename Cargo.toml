@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "egui-material-icons",
+    "material-icons-proc-macro",
+]
