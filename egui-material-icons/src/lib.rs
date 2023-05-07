@@ -1,4 +1,5 @@
-use egui::{Button, FontData, FontDefinitions, FontFamily, Response, RichText, Widget};
+use egui::style::Margin;
+use egui::{Button, FontData, FontDefinitions, FontFamily, Frame, Response, RichText, Widget};
 
 pub mod icons {
     material_icons_proc_macro::code_points!();
@@ -10,13 +11,31 @@ pub fn initialize(ctx: &egui::Context) {
     let mut fonts = FontDefinitions::default();
     let data = FontData::from_static(FONT_DATA);
     fonts.font_data.insert("material-icons".to_string(), data);
-    fonts.families.get_mut(&FontFamily::Proportional).unwrap().push("material-icons".to_string());
+    fonts
+        .families
+        .get_mut(&FontFamily::Proportional)
+        .unwrap()
+        .push("material-icons".to_string());
 
     ctx.set_fonts(fonts);
 }
 
 pub fn icon_button(ui: &mut egui::Ui, icon: &str) -> Response {
-    Button::new(RichText::new(icon).size(20.0))
-        .frame(false)
-        .ui(ui)
+    Frame::none()
+        .inner_margin(Margin {
+            left: 0.0,
+            right: 0.0,
+            top: 6.0,
+            bottom: 0.0,
+        })
+        .show(ui, |ui| {
+            Button::new(RichText::new(icon).size(18.0))
+                .frame(false)
+                .ui(ui)
+        })
+        .inner
+}
+
+pub fn icon_text(icon: &str) -> RichText {
+    RichText::new(icon)
 }

@@ -1,17 +1,19 @@
 use eframe::egui;
 
-
-use egui_material_icons::{icon_button, initialize};
 use egui_material_icons::icons::*;
+use egui_material_icons::{icon_button, initialize};
 
 fn main() {
     let native_options = eframe::NativeOptions::default();
-    eframe::run_native("My egui App", native_options, Box::new(|cc| Box::new(MyEguiApp::new(cc))));
+    eframe::run_native(
+        "My egui App",
+        native_options,
+        Box::new(|cc| Box::new(MyEguiApp::new(cc))),
+    );
 }
 
 #[derive(Default)]
-struct MyEguiApp {
-}
+struct MyEguiApp {}
 
 impl MyEguiApp {
     fn new(cc: &eframe::CreationContext<'_>) -> Self {
@@ -28,6 +30,7 @@ impl eframe::App for MyEguiApp {
                 icon_button(ui, ICON_ADD);
                 icon_button(ui, ICON_REMOVE);
                 icon_button(ui, ICON_IMAGE);
+                ui.label("Ayyy")
             });
         });
     }

@@ -7,25 +7,29 @@ pub fn code_points(_item: TokenStream) -> TokenStream {
 
     let mut names = HashSet::new();
 
-    let code: String = codepoints.split("\n").filter_map(|point| {
+    let code: String = codepoints
+        .split("\n")
+        .filter_map(|point| {
+            let split_point: Vec<&str> = point.split(" ").collect();
 
-        let split_point: Vec<&str> = point.split(" ").collect();
+            if split_point.len() > 1 {
+                let name = split_point[0].to_uppercase();
+                let addr = split_point[1];
 
-        if split_point.len() > 1 {
-            let name = split_point[0].to_uppercase();
-            let addr = split_point[1];
-
-            if !names.contains(&name) {
-                let token = Some(format!("pub const ICON_{name}: &str = \"\\u{{{addr}}}\";\n"));
-                names.insert(name);
-                token
+                if !names.contains(&name) {
+                    let token = Some(format!(
+                        "pub const ICON_{name}: &str = \"\\u{{{addr}}}\";\n"
+                    ));
+                    names.insert(name);
+                    token
+                } else {
+                    None
+                }
             } else {
                 None
             }
-        } else {
-            None
-        }
-    }).collect();
+        })
+        .collect();
 
     code.parse().unwrap()
 }
