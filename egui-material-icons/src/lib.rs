@@ -1,5 +1,4 @@
-use egui::style::Margin;
-use egui::{Button, FontData, FontDefinitions, FontFamily, Frame, Response, RichText, Widget};
+use egui::{Button, FontData, FontDefinitions, FontFamily, Frame, Margin, Response, RichText, Widget};
 
 pub mod icons {
     material_icons_proc_macro::code_points!();
