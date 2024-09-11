@@ -1,5 +1,5 @@
 use eframe::egui;
-
+use egui::{FontFamily, Label, RichText, Widget};
 use egui_material_icons::icons::*;
 use egui_material_icons::{icon_button, initialize};
 
@@ -31,6 +31,18 @@ impl eframe::App for MyEguiApp {
                 icon_button(ui, ICON_REMOVE);
                 icon_button(ui, ICON_IMAGE);
                 ui.label("Ayyy")
+            });
+
+            ui.group(|ui| {
+                ui.horizontal(|ui| {
+                    Label::new(
+                        RichText::new(ICON_FAVORITE_OUTLINE)
+                            .size(16.0)
+                            .family(FontFamily::Proportional),
+                    )
+                        .ui(ui);
+                    Label::new("2").ui(ui);
+                });
             });
         });
     }

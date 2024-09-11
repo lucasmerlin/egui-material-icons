@@ -8,7 +8,8 @@ pub const FONT_DATA: &[u8] = include_bytes!("../../MaterialIcons-Regular.ttf");
 
 pub fn initialize(ctx: &egui::Context) {
     let mut fonts = FontDefinitions::default();
-    let data = FontData::from_static(FONT_DATA);
+    let mut data = FontData::from_static(FONT_DATA);
+    data.tweak.y_offset_factor = 0.05;
     fonts.font_data.insert("material-icons".to_string(), data);
     fonts
         .families
@@ -24,7 +25,7 @@ pub fn icon_button(ui: &mut egui::Ui, icon: &str) -> Response {
         .inner_margin(Margin {
             left: 0.0,
             right: 0.0,
-            top: 6.0,
+            top: 0.0,
             bottom: 0.0,
         })
         .show(ui, |ui| {
