@@ -3,7 +3,7 @@ use std::collections::HashSet;
 
 #[proc_macro]
 pub fn code_points(_item: TokenStream) -> TokenStream {
-    let codepoints = include_str!("../../MaterialIcons-Regular.codepoints");
+    let codepoints = include_str!("../../MaterialSymbolsRounded-Regular.codepoints");
 
     let mut names = HashSet::new();
 

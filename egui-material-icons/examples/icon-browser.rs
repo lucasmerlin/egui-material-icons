@@ -36,7 +36,7 @@ impl eframe::App for MyEguiApp {
             ui.group(|ui| {
                 ui.horizontal(|ui| {
                     Label::new(
-                        RichText::new(ICON_FAVORITE_OUTLINE)
+                        RichText::new(ICON_FAVORITE)
                             .size(16.0)
                             .family(FontFamily::Proportional),
                     )

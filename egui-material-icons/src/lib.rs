@@ -4,7 +4,7 @@ pub mod icons {
     material_icons_proc_macro::code_points!();
 }
 
-pub const FONT_DATA: &[u8] = include_bytes!("../../MaterialIcons-Regular.ttf");
+pub const FONT_DATA: &[u8] = include_bytes!("../../MaterialSymbolsRounded-Regular.ttf");
 
 pub fn initialize(ctx: &egui::Context) {
     let mut fonts = FontDefinitions::default();
